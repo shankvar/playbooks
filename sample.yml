@@ -1,0 +1,8 @@
+---
+ -name: Test playbook
+   hosts: all
+   tasks:
+    - command: id
+      register: response
+    - debug:
+        var: response.stdout
