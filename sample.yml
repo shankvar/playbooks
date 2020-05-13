@@ -1,5 +1,5 @@
 ---
- -name: Test playbook
+ - name: Test playbook
    hosts: all
    tasks:
     - command: id
