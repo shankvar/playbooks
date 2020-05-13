@@ -1,6 +1,6 @@
 ---
  - name: Display Name and Time of they system.
    hosts: all
-   become: yes
+   become: true
    roles:
     - userinput
