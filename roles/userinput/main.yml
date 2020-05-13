@@ -3,8 +3,7 @@
   tasks: 
    - command: id
      register: response
-   - command: date
    - debug:
-       var: response.stdout
+       var: response
   
    
