@@ -1,6 +1,7 @@
 ---
  - name: Display Name and Time of they system.
-   hosts:all
-   become: true
-   tasks:
-    - command: date
+   hosts: all
+   become: yes
+   tasks: 
+    - command: "{{time}}"
+    - command: "{{name}}"
