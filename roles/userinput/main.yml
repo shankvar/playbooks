@@ -1,10 +1,10 @@
 ---
 - name: Display output as command given by user.
   tasks: 
-   - command: "{{ input1 }}"
+   - command: id
      register: response
-   - command: "{{ input2 }}"
-  debug:
-   var: response.stdout
+   - command: date
+   - debug:
+       var: response.stdout
   
    
