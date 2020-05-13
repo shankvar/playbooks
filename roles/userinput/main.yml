@@ -1,0 +1,5 @@
+---
+- name: Display output as command given by user.
+  tasks: 
+   - command: "{{input1}}"
+   - command: "{{input2}}"
