@@ -2,7 +2,7 @@
  - name: Test playbook
    hosts: all
    tasks:
-    - command: id
+    - command: "/opt/splunkforwarder/bin/splunk --version |awk '{print $4}'"
       register: response
     - debug:
         var: response.stdout
