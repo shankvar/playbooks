@@ -29,7 +29,7 @@
        dest: /var/lib/awx/shankarfile.csv
      delegate_to: 10.20.246.166
 
-- name: Sending an e-mail using the remote machine, not the Ansible controller node
+   - name: Sending an e-mail using the remote machine, not the Ansible controller node
      mail:
       host: localhost
       port: 25
