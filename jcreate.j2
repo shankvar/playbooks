@@ -1,0 +1,4 @@
+Name            splunk version Staus      Flexera Version Status     Qualys Version Status        Cylance Version Status
+{% for i in play_hosts %}
+{{ hostvars[i].ansible_hostname }}: {{ hostvars[i].response.stdout.split(" ")[3] }}  {{ hostvars[i].service.ansible_facts.services["splunk.service"].state }}           {{ hostvars[i].package.ansible_facts.packages.managesoft[0].version }}  {{ hostvars[i].service.ansible_facts.services["ndtask.service"].state }}           {{ hostvars[i].package.ansible_facts.packages["qualys-cloud-agent"][0].version }}  {{ hostvars[i].service.ansible_facts.services["qualys-cloud-agent.service"].state }}               {{ hostvars[i].package.ansible_facts.packages["CylancePROTECT"][0].version }}   {{ hostvars[i].service.ansible_facts.services["cylancesvc.service"].state }}
+{% endfor %}
