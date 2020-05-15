@@ -1,0 +1,10 @@
+- name: Send mail
+  hosts: controller
+  tasks:
+  - mail:
+     host: localhost
+     port: 25
+     from: mudaliyar.v.shankar@pwc.com
+     to: mudaliyar.v.shankar@pwc.com
+     subject: Test mail from Shankar
+     body: "{{lookup('file', '/home/lxadmin/ansible-files/mail/bodyfile')}}"
