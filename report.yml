@@ -31,6 +31,7 @@
 
 - name: Sending an e-mail using the remote machine, not the Ansible controller node
   hosts: controller
+  become: true
   tasks:
   -  command: "cat /home/lxadmin/ansible-files/jinja/shankarfile.csv"
      register: mailbody
