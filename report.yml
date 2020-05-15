@@ -26,7 +26,7 @@
 
    - template:
        src: jcreate.j2
-       dest: /home/lxadmin/ansible-files/jinja/shankarfile.csv
+       dest: /var/lib/awx/shankarfile.csv
      delegate_to: 10.20.246.166
 
    - name: Sending an e-mail using the remote machine, not the Ansible controller node
@@ -36,7 +36,7 @@
       from: mudaliyar.v.shankar@pwc.com
       to: mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
-      body: "{{ lookup('file', '/home/lxadmin/ansible-files/jinja/shankarfile.csv, host=localhost') }}"
+      body: "{{ lookup('file', '/var/lib/awx/shankarfile.csv, host=localhost') }}"
      delegate_to: localhost
       #attach:
  # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
