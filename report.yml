@@ -1,6 +1,6 @@
 ---
 - name: Create file with template
-  hosts: all
+  hosts: nodes
   become: true
   vars:
     names: shankar
@@ -32,15 +32,13 @@
 - name: Sending an e-mail using the remote machine, not the Ansible controller node
   hosts: controller
   tasks:
-   - mail:
+  -  command: "cat /home/lxadmin/ansible-files/jinja/shankarfile.csv"
+     register: mailbody
+  -  mail:
       host: localhost
       port: 25
       from: mudaliyar.v.shankar@pwc.com
       to:
        -  mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
-      body: "{{ lookup('file', '/home/lxadmin/ansible-files/jinja/shankarfile.csv', host=10.20.246.166) }}"
-     delegate_to: 10.20.246.166
-
-      #attach:
- # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
+      body: "{{ mailbody.stdout }}"
