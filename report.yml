@@ -36,7 +36,7 @@
       from: mudaliyar.v.shankar@pwc.com
       to: mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
-      body: "{{ lookup('file', '/var/lib/awx/shankarfile.csv, host=localhost') }}"
+      body: "{{ lookup('file', '/var/lib/awx/shankarfile.csv', 'host=localhost') }}"
      delegate_to: localhost
       #attach:
  # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
