@@ -37,5 +37,6 @@
       to: mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
       body: "{{ lookup('file', '/home/lxadmin/ansible-files/jinja/shankarfile.csv') }}"
+     delegate_to: 10.20.246.166
       #attach:
  # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
