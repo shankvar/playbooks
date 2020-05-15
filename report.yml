@@ -34,6 +34,8 @@
   tasks:
   -  command: "cat /home/lxadmin/ansible-files/jinja/shankarfile.csv"
      register: mailbody
+     failed_when: "'FAILED' in mailbody.stderr"
+
   -  mail:
       host: localhost
       port: 25
@@ -42,3 +44,13 @@
        -  mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
       body: "{{ mailbody.stdout }}"
+
+  -  stat:
+       path: /home/lxadmin/ansible-files/jinja/shankarfile.csv
+     register: stat_result
+  -  name: moving file
+     command: mv /home/lxadmin/ansible-files/jinja/shankarfile.csv /home/lxadmin/ansible-files/jinja/shankarfile.csv.last
+     when: stat_result.stat.exists == True
+
+      #attach:
+ # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
