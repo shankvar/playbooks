@@ -1,0 +1,41 @@
+---
+- name: Create file with template
+  hosts: all
+  become: true
+  vars:
+    names: shankar
+  tasks:
+   - service:
+          name: "{{ item }}"
+          state: started
+     with_items:
+         - splunk
+         - cylancesvc
+         - ndtask
+         - 'qualys-cloud-agent'
+
+   - command: "/opt/splunkforwarder/bin/splunk --version"
+     register: response
+
+   - service_facts:
+     register: service
+
+   - package_facts:
+           manager: auto
+     register: package
+
+   - template:
+       src: jcreate.j2
+       dest: shankarfile.csv
+     delegate_to: localhost
+
+   - name: Sending an e-mail using the remote machine, not the Ansible controller node
+     mail:
+      host: localhost
+      port: 25
+      from: mudaliyar.v.shankar@pwc.com
+      to: mudaliyar.v.shankar@pwc.com
+      subject: Ansible-report
+      body: "{{ lookup('file', 'shankarfile.csv') }}"
+      #attach:
+ # - /home/lxadmin/ansible-files/jinja/shankarfile.csv
