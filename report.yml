@@ -30,7 +30,6 @@
      delegate_to: 10.20.246.166
 
 - name: Sending an e-mail using the remote machine, not the Ansible controller node
-     host: localhost
      mail:
       host: localhost
       port: 25
