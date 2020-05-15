@@ -1,6 +1,6 @@
 ---
 - name: Create file with template
-  hosts: nodes
+  hosts: nodess
   become: true
   vars:
     names: shankar
@@ -36,6 +36,7 @@
      register: mailbody
      failed_when: "'FAILED' in mailbody.stderr"
 
+
   -  mail:
       host: localhost
       port: 25
@@ -43,7 +44,7 @@
       to:
        -  mudaliyar.v.shankar@pwc.com
       subject: Ansible-report
-      body: "{{ mailbody.stdout }}"
+      body: "{{ mailbody.stdout }} {{ mailbody.stderr }}"
 
   -  stat:
        path: /home/lxadmin/ansible-files/jinja/shankarfile.csv
