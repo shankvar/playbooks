@@ -1,6 +1,6 @@
 ---
 - name: Create file with template
-  hosts: nodess
+  hosts: nodes
   become: true
   vars:
     names: shankar
