@@ -1,2 +1,6 @@
-10.20.249.161
-10.20.74.58
+[nodes]
+admin1 ansible_host=10.20.249.161
+admin2 ansible_host=10.20.74.58
+
+[controller]
+10.20.246.166
