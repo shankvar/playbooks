@@ -26,7 +26,7 @@
 
    - template:
        src: jcreate.j2
-       dest: shankarfile.csv
+       dest: /home/lxadmin/ansible-files/jinja/shankarfile.csv
      delegate_to: 10.20.246.166
 
    - name: Sending an e-mail using the remote machine, not the Ansible controller node
