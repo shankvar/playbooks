@@ -11,3 +11,5 @@
      to: mudaliyar.v.shankar@pwc.com
      subject: Test mail from Shankar
      body: "{{ bodyfile.stdout }}"
+     attach:
+      - /home/lxadmin/ansible-files/mail/bodyfile
