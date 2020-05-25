@@ -44,7 +44,7 @@
       from: mudaliyar.v.shankar@pwc.com
       to:
        -  mudaliyar.v.shankar@pwc.com
-      subject: Ansible-report
+      subject: Ansible-Tower Server Service Status report
       body: "{{ mailbody.stdout }} {{ mailbody.stderr }}"
       attach:
       - /home/lxadmin/ansible-files/jinja/shankarfile.csv
